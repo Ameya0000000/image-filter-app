@@ -12,6 +12,8 @@ Udagram is a simple cloud application developed alongside the Udacity Cloud Engi
 ### [http://image-filter-app-deploy-dev.us-east-1.elasticbeanstalk.com/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg](http://image-filter-app-deploy-dev.us-east-1.elasticbeanstalk.com/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg)
 
 
+### EB deployment
+![image](deployment_screenshots/eb-deployment-image.png)
 The project is split into three parts:
 1. [The Simple Frontend](https://github.com/udacity/cloud-developer/tree/master/course-02/exercises/udacity-c2-frontend)
 A basic Ionic client web application which consumes the RestAPI Backend. [Covered in the course]
