@@ -29,19 +29,24 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
   /**************************************************************************** */
 
-  app.get('/filteredimage',async (req:Request , res: Response) => {
+  app.get('/filteredimage',async (req , res) => {
     const image_url = req.query.image_url;
-
-    if (!image_url){
-      res.status(400).send('Image url is Needed');
+    try {
+      if (!image_url){
+        res.status(400).send('Image url is Needed');
+      }
+      else {
+        const filtered_image = await filterImageFromURL(image_url);
+        res.status(200).sendFile(filtered_image);
+        res.on('finish', function() {
+          deleteLocalFiles([filtered_image]);
+        });
+      }
     }
-    else {
-      const filtered_image = await filterImageFromURL(image_url);
-      res.status(200).sendFile(filtered_image);
-      res.on('finish', function() {
-        deleteLocalFiles([filtered_image]);
-      });
+    catch {
+      res.status(500).send('Server Error. Please provide a correct URL')
     }
+    
 
     
   });
